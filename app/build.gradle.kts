@@ -72,5 +72,16 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar", "*.aar"))))
+    
+    // Download crwebview dependencies from GitHub Releases
+    val crwebviewVersion = "2.0.0"
+    val baseUrl = "https://github.com/wuruxu/crwebview/releases/download/$crwebviewVersion"
+    
+    implementation(files("$baseUrl/android_crwebview_webkit.WebView-v2.0.0.aar"))
+    implementation(files("$baseUrl/android_webview_resources-debug.aar"))
+    implementation(files("$baseUrl/content-debug.aar"))
+    implementation(files("$baseUrl/embedder_support_resources-debug.aar"))
+    implementation(files("$baseUrl/ui-debug.aar"))
+    
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
 }
