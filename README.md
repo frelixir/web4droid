@@ -14,7 +14,6 @@
   * RPG Maker MV/MZ
   * Browser Woditor
 * **Immersive Fullscreen Experience**: Automatically hides the system status bar and navigation bar, with full support for display cutouts (notches).
-* **Touch-Optimized Controls**: Built-in virtual onscreen buttons (directional keys, Shift, Esc, Enter, etc.) and gesture support tailored for mobile touchscreens.
 * **Local Asset Loading**: Full support for loading core files via the `file:///android_asset/` protocol, with file read/write permissions for save data management.
 
 ### System Requirements
@@ -81,7 +80,6 @@ Special thanks to [wuruxu/crwebview](https://github.com/wuruxu/crwebview) for pr
   * RPG Maker MV/MZ
   * Browser Woditor
 * **沉浸式全屏体验**：自动隐藏系统状态栏和导航栏，并全面适配刘海屏。
-* **移动端触控优化**：为移动端触摸屏量身定制了屏幕虚拟按键（包含方向键、Shift、Esc、Enter 等），并支持手势滑动操作。
 * **本地化资源加载**：完全支持通过 `file:///android_asset/` 协议加载核心文件，并支持文件读写权限（可用于存档数据管理）。
 
 ### 系统要求
