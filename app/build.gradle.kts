@@ -1,3 +1,7 @@
+import java.net.URL
+import java.nio.file.Files
+import java.nio.file.StandardCopyOption
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -65,6 +69,34 @@ configurations.all {
     exclude(group = "org.jspecify", module = "jspecify")
 }
 
+// Download crwebview dependencies from GitHub Releases
+val crwebviewVersion = "2.0.0"
+val baseUrl = "https://github.com/wuruxu/crwebview/releases/download/$crwebviewVersion"
+val aarFiles = listOf(
+    "android_crwebview_webkit.WebView-v2.0.0.aar",
+    "android_webview_resources-debug.aar",
+    "content-debug.aar",
+    "embedder_support_resources-debug.aar",
+    "ui-debug.aar"
+)
+
+val libsDir = file("libs")
+if (!libsDir.exists()) libsDir.mkdirs()
+
+aarFiles.forEach { aar ->
+    val aarFile = file("libs/$aar")
+    if (!aarFile.exists()) {
+        println("Downloading $aar from GitHub Releases...")
+        try {
+            URL("$baseUrl/$aar").openStream().use { input ->
+                Files.copy(input, aarFile.toPath(), StandardCopyOption.REPLACE_EXISTING)
+            }
+        } catch (e: Exception) {
+            println("Failed to download $aar: ${e.message}")
+        }
+    }
+}
+
 dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
@@ -73,15 +105,5 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     
-    // Download crwebview dependencies from GitHub Releases
-    val crwebviewVersion = "2.0.0"
-    val baseUrl = "https://github.com/wuruxu/crwebview/releases/download/$crwebviewVersion"
-    
-    implementation(files("$baseUrl/android_crwebview_webkit.WebView-v2.0.0.aar"))
-    implementation(files("$baseUrl/android_webview_resources-debug.aar"))
-    implementation(files("$baseUrl/content-debug.aar"))
-    implementation(files("$baseUrl/embedder_support_resources-debug.aar"))
-    implementation(files("$baseUrl/ui-debug.aar"))
-    
-    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar"))))
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar", "*.aar"))))
 }
