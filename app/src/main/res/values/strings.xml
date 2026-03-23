@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">web4droid</string>
+    <string name="accessibility_list_menu_button">Menu</string>
+    <string name="accessibility_toolbar_btn_menu">Menu</string>
+    <string name="copied">Copied</string>
+    <string name="copy_to_clipboard_failure_message">Failed to copy to clipboard</string>
+    <string name="elided_url_text_view_url_expanded">URL expanded</string>
+    <string name="elided_url_text_view_url_truncated">URL truncated</string>
+    <string name="image_copied">Image copied</string>
+    <string name="link_copied">Link copied</string>
+    <string name="low_memory_error">Low memory</string>
+    <string name="opening_android_media_picker">Opening media picker</string>
+    <string name="opening_file_error">Failed to open file</string>
+    <string name="permission_denied_error">Permission denied</string>
+</resources>
