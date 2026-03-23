@@ -5,7 +5,7 @@
 <h2 id="english">English</h2>
 
 ### Project Introduction
-**web4droid** is a lightweight Android wrapper container utilizing a custom Chromium WebView core. It is designed to smoothly run Web Native apps on mobile devices. By integrating an independent Chromium engine instead of relying on the system's default WebView, it ensures high performance, consistency, and better compatibility across different Android versions.
+**web4droid** is a lightweight Android wrapper container utilizing a custom Chromium WebView core. It is designed to smoothly run Web Native apps on mobile devices. By integrating an independent Chromium core instead of relying on the system's default WebView, it ensures high performance, consistency, and better compatibility across different Android versions.
 
 ### Features
 * **Custom Chromium Core**: Uses `crwebview` (`org.chromium.android_crwebview`) instead of the system WebView, avoiding fragmentation and compatibility issues.
@@ -55,10 +55,10 @@ Create an `index.html` in `app/src/main/assets/`:
 
 ### FAQ
 **Q: Why is the app size larger than a standard WebView app?**
-A: Because it bundles a custom Chromium engine (`crwebview`) to ensure consistent rendering performance across all devices.
+A: Because it bundles a custom Chromium core (`crwebview`) to ensure consistent rendering performance across all devices.
 
 **Q: How do I enable debug logging?**
-A: You can inspect logs using `logcat` in Android Studio or Chrome DevTools via `chrome://inspect` (if debugging is enabled).
+A: You can inspect logs using `logcat` in Android Studio.
 
 ### License
 This project is licensed under the Mozilla Public License Version 2.0 - see the `LICENSE` file for details.
@@ -71,7 +71,7 @@ Special thanks to [wuruxu/crwebview](https://github.com/wuruxu/crwebview) for pr
 <h2 id="中文">中文</h2>
 
 ### 项目简介
-**web4droid** 是一个基于定制 Chromium WebView 内核的轻量级 Android 容器应用，专为在移动设备上流畅运行 Web 原生应用 设计。通过集成独立的 Chromium 引擎，取代系统默认的 WebView，以在不同的 Android 版本中提供了高性能、一致性和更好的兼容性。
+**web4droid** 是一个基于定制 Chromium WebView 内核的轻量级 Android 容器应用，专为在移动设备上流畅运行 Web 原生应用设计。通过集成独立的 Chromium 内核，取代系统默认的 WebView，以在不同的 Android 版本中提供了高性能、一致性和更好的兼容性。
 
 ### 功能特性
 * **独立 Chromium 内核**：使用 `crwebview`（`org.chromium.android_crwebview`）替代系统自带 WebView，避免了系统版本碎片化导致的兼容性问题。
@@ -121,10 +121,10 @@ Special thanks to [wuruxu/crwebview](https://github.com/wuruxu/crwebview) for pr
 
 ### 常见问题
 **Q：为什么应用的体积比使用原生 WebView 的应用大？**
-A：因为本项目内置了独立的 Chromium 引擎（`crwebview`），以确保在所有设备上都能获得一致且高效的渲染性能。
+A：因为本项目内置了独立的 Chromium 内核（`crwebview`），以确保在所有设备上都能获得一致且高效的渲染性能。
 
 **Q：如何查看调试日志？**
-A：你可以在 Android Studio 中使用 `logcat` 查看日志，或者（在开启调试的情况下）通过 Chrome 浏览器的 `chrome://inspect` 进行调试。
+A：你可以在 Android Studio 中使用 `logcat` 查看日志。
 
 ### 许可证声明
 本项目基于 Mozilla Public License Version 2.0 协议开源 - 详情请参阅 `LICENSE` 文件。
