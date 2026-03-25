@@ -1,10 +1,9 @@
-import java.net.URL
+import java.net.URI
 import java.nio.file.Files
 import java.nio.file.StandardCopyOption
 
 plugins {
     alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
 }
 
 android {
@@ -57,8 +56,8 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = "11"
+    buildFeatures {
+        resValues = true
     }
     androidResources {
         noCompress += listOf("bin", "pak")
@@ -88,7 +87,7 @@ aarFiles.forEach { aar ->
     if (!aarFile.exists()) {
         println("Downloading $aar from GitHub Releases...")
         try {
-            URL("$baseUrl/$aar").openStream().use { input ->
+            URI.create("$baseUrl/$aar").toURL().openStream().use { input ->
                 Files.copy(input, aarFile.toPath(), StandardCopyOption.REPLACE_EXISTING)
             }
         } catch (e: Exception) {
@@ -104,6 +103,5 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    
     implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.jar", "*.aar"))))
 }
